@@ -44,7 +44,7 @@
 	// String(s)
 	$string = "Hello World";
 	$string_numeric = "1e3"; // Will be displayed as a string
-	$string_numeric = 1 + "1e3"; // Will be displayed as a integer, because a numeric expression is executed
+	$string_numeric = 1 + "1e3"; // Will be displayed as a integer, because a arithmetic operation gets carried out
 
 	// Boolean(s)
 	$boolean = true;
