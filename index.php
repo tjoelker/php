@@ -44,7 +44,7 @@
 	// String(s)
 	$string = "Hello World";
 	$string_numeric = "1e3"; // Will be displayed as a string
-	$string_numeric = 1 + "1e3"; // Will be displayed as a integer, because a arithmetic operation gets carried out
+	$string_numeric = 1 + "1e3"; // Will be displayed as a integer, because a arithmetic operation gets carried out, because the string value can be parsed as an integer.
 
 	// Boolean(s)
 	$boolean = true;
@@ -67,50 +67,61 @@
 		'key' => $string,
 		$boolean,
 	];
-	$movies = [
+	$discography = [
 		[
-			'title' => 'Dune',
-			'year' => 2021,
-			'genre' => [
-				'Sci-fi',
-			],
+			'artist' => 'Acronym',
+			'title' => 'June',
+			'year' => 2015,
+			'link' => 'https://www.discogs.com/master/856972-Acronym-June',
 		],
 		[
-			'title' => 'Dune: Part Two',
-			'year' => 2024,
-			'genre' => [
-				'Action',
-				'Sci-fi',
-			],
+			'artist' => 'Djrum',
+			'title' => 'Broken Glass Arch',
+			'year' => 2017,
+			'link' => 'https://www.discogs.com/master/1266757-Djrum-Broken-Glass-Arch',
+		],
+		[
+			'artist' => 'Nthng',
+			'title' => 'Earthseed',
+			'year' => 2022,
+			'link' => 'https://www.discogs.com/master/2766407-Nthng-Earthseed',
+		],
+		[
+			'artist' => 'Nthng',
+			'title' => 'It Never Ends',
+			'year' => 2017,
+			'link' => 'https://www.discogs.com/master/1151915-Nthng-It-Never-Ends',
 		],
 	];
+	function filter($data, $function): array {
+		$filtered_data = [];
+
+		foreach ($data as $item) {
+			if ($function($item)) {
+				$filtered_data[] = $item;
+			}
+		}
+		
+		return $filtered_data;
+	};
+	$filtered_discography = array_filter($discography, function ($item) {
+		return $item['year'] < 2020;
+	});
 
 	// The variable that will be parsed into the DOM.
 	$render = $boolean;
 ?>
 
 <!-- ### HTML ### -->
-<uL>
-<?php foreach ($movies as $movie) : ?>
-	<li>
-		<span>title:</span> <?= $movie['title'] ?>
-		<?php if (count($movie) > 1) : ?>
-			<ul>
-				<li>
-					<?= $movie['year']; ?>
-				</li>
-				<li>
-					<ul>
-						<?php foreach ($movie['genre'] as $genre) : ?>
-							<li><?= $genre ?></li>
-						<?php endforeach; ?>
-					</ul>
-				</li>
-			</ul>
-		<?php endif; ?>
-	</li>
-<?php endforeach; ?>
-</uL>
+<ul>
+	<?php foreach ($filtered_discography as $release) : ?>
+		<li>
+			<a href="<?= $release['link'] ?>">
+				<?= "{$release['artist']} - {$release['title']} ({$release['year']})" ?>
+			</a>
+		</li>
+	<?php endforeach; ?>
+</ul>
 <?php if ($render) : ?>
 <p style="color: var(--medium-blue-color);font-size: 12px;">
 	A shorthand to <code style="font-size: 11px;">echo</code> variables inside PHP is <code style="font-size: 11px;">&lt;?= $variable ?&gt;</code>
