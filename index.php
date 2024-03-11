@@ -72,6 +72,41 @@ $filtered_discography = array_filter($discography, function ($item) {
 });
 $filtered_discography = array_filter($discography, fn($item) => $item['year'] < 2020);
 
+$name = 'Dynamo';
+$uuid = 1337;
+
+$profile = [
+	'name' => $name,
+	'uuid' => $uuid,
+	'categories' => [
+		'design',
+		'development',
+		'hosting',
+	],
+];
+function looper($data) {
+	echo "<ul class='profile'>";
+
+	foreach ($data as $key => $value) {
+	// e.g. $profile as 'name' => $name
+		if (!(gettype($value) === 'array')) {
+			echo "<li>$key</li>";
+		} else {
+			echo "<li>$key</li><ul>";
+
+			foreach ($value as $nested_value) {
+				echo "<li>$nested_value</li>";
+			}
+
+			echo "</ul></li>";
+		}
+		echo "</li>";
+	}
+	echo "</ul>";
+}
+
+$object = (object)[];
+
 // The variable that will be parsed into the DOM, inside `index.view.php`
-$render = $boolean;
+$render = looper($profile);
 require 'index.view.php';

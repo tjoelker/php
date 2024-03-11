@@ -48,7 +48,7 @@
 <p style="color: var(--medium-blue-color);font-size: 12px;">
 	A shorthand to <code style="font-size: 11px;">echo</code> variables inside PHP is <code style="font-size: 11px;">&lt;?= $variable ?&gt;</code>
 </p>
-<?= $function_alt ?>
+<?= $render ?>
 <?php endif; ?>
 </body>
 </html>
