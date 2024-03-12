@@ -108,5 +108,6 @@ function looper($data) {
 $object = (object)[];
 
 // The variable that will be parsed into the DOM, inside `index.view.php`
-$render = looper($profile);
+$render = NULL;
+
 require 'index.view.php';
