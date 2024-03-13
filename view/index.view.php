@@ -1,9 +1,3 @@
-<?php 
-
-$heading = $page_name;
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

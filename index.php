@@ -114,6 +114,18 @@ $render = NULL; // Set to NULL because it's not used at the moment.
 
 // * END * prototyping code
 
+function pre_dump($variable, $option = false) {
+	echo '<pre style="background: #151515; border-radius: 8px; color: #ffffff; padding: 8px;">';
+	var_dump($variable);
+	echo '</pre>';
+
+	if ($option) {
+		die();
+	}
+}
+
+// pre_dump($_SERVER, true);
+
 $page_name = 'Home';
 
 require 'view/index.view.php';
