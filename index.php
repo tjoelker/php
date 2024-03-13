@@ -1,5 +1,7 @@
 <?php
 
+// * START * prototyping code
+
 // Numbers
 $integer = 7;
 $floating_point = 1.337;
@@ -108,6 +110,10 @@ function looper($data) {
 $object = (object)[];
 
 // The variable that will be parsed into the DOM, inside `index.view.php`
-$render = NULL;
+$render = NULL; // Set to NULL because it's not used at the moment.
 
-require 'index.view.php';
+// * END * prototyping code
+
+$page_name = 'Home';
+
+require 'view/index.view.php';

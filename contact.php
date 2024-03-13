@@ -1,3 +1,5 @@
 <?php
 
-require 'contact.view.php';
+$page_name = 'Contact';
+
+require 'view/contact.view.php';
