@@ -120,4 +120,4 @@ $extra = $_SERVER['REQUEST_URI'] === '/' ? 'Where at homebase' : 'Where the f*ck
 
 $page_name = 'Home';
 
-require 'view/index.view.php';
+require 'views/index.view.php';

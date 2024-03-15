@@ -7,10 +7,10 @@
 	<title>PHP | Home</title>
 </head>
 <body>
-	<?php require('component/header.view.php'); ?>
+	<?php require('components/header.view.php'); ?>
 	<main>
 		<section>
-			<?php require('component/heading.view.php'); ?>
+			<?php require('components/heading.view.php'); ?>
 		</section>
 		<section>
 			<?php echo $extra; ?>
