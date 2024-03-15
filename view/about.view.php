@@ -11,6 +11,7 @@
 	<main>
 		<section>
 			<?php require('component/heading.view.php'); ?>
+			<?php pre_dump($_SERVER); ?>
 		</section>
 	</main>
 </body>

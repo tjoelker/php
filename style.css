@@ -64,6 +64,17 @@ nav > ul > li > a {
 	text-decoration: none;
 }
 
+a.active::before {
+	content: '';
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin-right: 6px;
+	border: 1px solid var(--dark-grey-color);
+	border-radius: 100%;
+	background: greenyellow;
+}
+
 nav > button {
 	display: flex;
 	align-items: center;

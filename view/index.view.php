@@ -12,6 +12,9 @@
 		<section>
 			<?php require('component/heading.view.php'); ?>
 		</section>
+		<section>
+			<?php echo $extra; ?>
+		</section>
 	</main>
 </body>
 </html>
