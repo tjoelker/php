@@ -116,3 +116,15 @@ code {
 	border-radius: 4px;
 	color: var(--dark-blue-color);
 }
+
+th,
+td {
+	border: 1px solid var(--dark-blue-color);
+	text-align: left;
+	vertical-align: top;
+
+	ol {
+		margin: 0;
+		padding-left: 18px;
+	}
+}

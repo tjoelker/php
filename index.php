@@ -3,9 +3,7 @@
 require 'functions.php';
 require 'router.php';
 
-pre_dump($_SERVER['REQUEST_URI']);
-
-// Connect to MySQL database:
+// 101 Classes:
 
 class Release 
 {
@@ -16,7 +14,7 @@ class Release
 
 	public function createTable(): void
 	{
-		echo "<table>";
+		echo "<table data-album=\"{$this->title}\">";
 		echo "<tr><th>Artist</th><td>{$this->artist}</td></tr>";
 		echo "<tr><th>Title</th><td>{$this->title}</td></tr>";
 		echo "<tr><th>Year</th><td>{$this->year}</td></tr>";
@@ -52,4 +50,12 @@ $album->tracklist = [
 	'Blood In My Mouth',
 ];
 
+pre_dump($album);
+
 $album->createTable();
+
+// Connect to MySQL database:
+
+new PDO();
+
+pre_dump($_SERVER['REQUEST_URI']);
