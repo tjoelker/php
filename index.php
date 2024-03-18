@@ -24,7 +24,7 @@ class Release
 		echo "</table>";
 	}
 
-	private function printTracklist($list): void
+	private function printTracklist(array $list): void
 	{
 		echo "<ol>";
 		foreach ($list as $title) {
@@ -50,12 +50,22 @@ $album->tracklist = [
 	'Blood In My Mouth',
 ];
 
-pre_dump($album);
-
-$album->createTable();
-
 // Connect to MySQL database:
 
-new PDO();
+$DSN = 'mysql:host=localhost;port=3306;dbname=php;charset=utf8mb4';
+$PDO = new PDO($DSN, 'root');
 
-pre_dump($_SERVER['REQUEST_URI']);
+$STATEMENT = $PDO->prepare('SELECT * FROM core');
+$STATEMENT->execute();
+
+$POSTS = $STATEMENT->fetchAll(PDO::FETCH_ASSOC);
+
+try {
+	if ($POSTS) {
+		throw new Exception('MySQL connection succesfull! Loading data: ');
+	}
+} catch (Exception $e) {
+	echo $e . "\n";
+	pre_dump($POSTS);
+}
+
