@@ -6,9 +6,9 @@ require 'classes.php';
 require 'functions.php';
 require 'router.php';
 
-// Connect to MySQL database:
+$config = require 'config.php';
 
-$database = new Database;
+$database = new Database($config['database']);
 
 // In the below statement, `query()` is executed first and it's result is then processed by `fetchAll()`.
-pre_dump($database->query("SELECT * FROM core")->fetchAll(PDO::FETCH_ASSOC));
+pre_dump($database->query("SELECT * FROM core")->fetchAll());

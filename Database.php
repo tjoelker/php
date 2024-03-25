@@ -6,23 +6,24 @@
 class Database
 {
 	private PDO $connection;
-	private string $host = 'localhost';
-	private int $port = 3306;
-	private string $dbname = 'php';
-	private string $user = 'root';
+	private string $host = 'localhost'; // Deprecated, configured in `$config`
+	private int $port = 3306; // Deprecated, configured in `$config`
+	private string $dbname = 'php'; // Deprecated, configured in `$config`
+	private string $username = 'root'; // Deprecated, configured in `__construct()` parameter
+	private ?string $password = ''; // Deprecated, configured in `__construct()` parameter
 
 	/**
 	 * By using a `__construct` method, we only need to setup a `PDO` once.
 	 */
-	public function __construct()
+	public function __construct($config, $username = 'root', $password = '')
 	{
 		$this->connection = new PDO(
-		   "mysql:
-			host={$this->host};
-			port={$this->port};
-			dbname={$this->dbname};
-			user={$this->user};
-			charset=utf8mb4"
+			'mysql:' . http_build_query($config, 'test', ';'),
+			$username,
+			$password,
+			[
+				PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+			],
 		);
 	}
 
