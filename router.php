@@ -18,6 +18,8 @@ $URI = parse_url($_SERVER['REQUEST_URI'])['path'];
 // 'Router' array (mapping)
 $ROUTES = array(
 	'/' => 'controllers/index.php',
+	'/notes' => 'controllers/notes.php',
+	'/notes/note' => 'controllers/note.php',
 	'/about' => 'controllers/about.php',
 	'/contact' => 'controllers/contact.php',
 );

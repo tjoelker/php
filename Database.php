@@ -32,10 +32,10 @@ class Database
 	 * @param string
 	 * @return PDOStatement[]
 	 */
-	public function query(string $query): PDOStatement
+	public function query(string $query, ?array $params = []): PDOStatement
 	{
 		$dbquery = $this->connection->prepare($query);
-		$dbquery->execute();
+		$dbquery->execute($params);
 
 		return $dbquery;
 	}

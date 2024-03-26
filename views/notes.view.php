@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/style.css">
-	<title>PHP | Home</title>
+	<title>PHP | Notes</title>
 </head>
 <body>
 	<?php require('components/header.view.php'); ?>
@@ -13,7 +13,15 @@
 			<?php require('components/heading.view.php'); ?>
 		</section>
 		<section>
-			<?php echo $extra; ?>
+			<ul>
+				<?php foreach($notes as $note) : ?>
+					<li>
+						<a href="notes/note?uuid=<?= $note['uuid'] ?>" style="display: block;width: 50vw;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+							<?= $note['content'] ?>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
 		</section>
 	</main>
 </body>
