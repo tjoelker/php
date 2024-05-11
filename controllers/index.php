@@ -13,7 +13,7 @@ $string_numeric = 1 + "1e3"; // Will be displayed as a integer, because a arithm
 
 // Boolean(s)
 $boolean = true;
-function boolean($parameter): string 
+function boolean($parameter): string
 {
 	if ($parameter) {
 		return 'The variable is truthy!';
@@ -26,7 +26,7 @@ $function_alt = $boolean ? 'The variable is truthy!' : 'The variable is falsy...
 
 // Array(s)
 $array = array(
-	$string, 
+	$string,
 	$boolean,
 );
 $array = [
@@ -59,7 +59,7 @@ $discography = [
 		'link' => 'https://www.discogs.com/master/1151915-Nthng-It-Never-Ends',
 	],
 ];
-function filter($data, $function): array 
+function filter($data, $function): array
 {
 	$filtered_data = [];
 
@@ -68,7 +68,7 @@ function filter($data, $function): array
 			$filtered_data[] = $item;
 		}
 	}
-	
+
 	return $filtered_data;
 };
 $filtered_discography = array_filter($discography, function ($item) {
@@ -88,7 +88,7 @@ $profile = [
 		'hosting',
 	],
 ];
-function looper($data) 
+function looper($data)
 {
 	echo "<ul class='profile'>";
 

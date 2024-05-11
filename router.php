@@ -54,7 +54,7 @@ function router($uri, $routes): void
 function abort($code = 404): void
 {
 	http_response_code($code);
-	
+
 	require "views/{$code}.view.php";
 
 	die();

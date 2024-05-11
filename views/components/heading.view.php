@@ -1,6 +1,6 @@
 <!-- component/heading.view -->
 <h1>
-	<?php 
+	<?php
 		if (isset($heading) && $heading !== '') {
 			echo $heading;
 		} elseif ($_SERVER['REQUEST_URI'] === '/') {

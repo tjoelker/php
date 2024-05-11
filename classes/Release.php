@@ -2,7 +2,7 @@
 
 namespace Classes;
 
-class Release 
+class Release
 {
 	public ?int $year;
 	public ?string $title;
